@@ -46,4 +46,46 @@
 		const FAILUER = "Failure";
 	}
 	print MyClass2::SUCCESS;
+	echo "<br>";
+
+	class MyClass3 {
+			static function helloWorld() {
+				print  "Hello ,world";
+			}
+	}
+	MyClass3::helloWorld();
+	echo "<br>";
+
+	class Singleton {
+		static private $instance=NULL;
+
+		private function __construct() {
+
+		}
+
+		static public function getInstance() {
+			if (self::$instance == NULL){
+				self::$instance = new Singleton();
+			}
+			return self::$instance;
+		}
+	}
+
+	abstract class MyBaseClass {
+		function display() {
+			print "Default display routine being called";
+		}
+		abstract function display2();
+	}
+
+	class MyBaseClass2 extends MyBaseClass {
+		function display2(){
+			print "display2";
+		}
+	}
+
+	$myBaseClass2=new MyBaseClass2();
+	$myBaseClass2->display();
+	echo "<br>";
+	$myBaseClass2->display2();
 ?>
