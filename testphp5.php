@@ -9,7 +9,7 @@
 		{
 			$this->name=$name;
 		}
-		function Person($naem)
+		function Person($name)
 		{
 			$this->setName($name);
 		}
@@ -71,10 +71,12 @@
 		}
 	}
 
+	//抽象类
 	abstract class MyBaseClass {
 		function display() {
 			print "Default display routine being called";
 		}
+		//抽象方法 子类要实现该方法
 		abstract function display2();
 	}
 
@@ -82,10 +84,20 @@
 		function display2(){
 			print "display2";
 		}
+		function expectsMyClass (MyClass $obj){
+
+		}
 	}
 
 	$myBaseClass2=new MyBaseClass2();
 	$myBaseClass2->display();
 	echo "<br>";
 	$myBaseClass2->display2();
+	$myClass2=new MyClass2();
+	//系统报错 
+	// $myBaseClass2->expectsMyClass($myClass2);
+
+
+
+
 ?>
