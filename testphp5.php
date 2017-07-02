@@ -94,10 +94,16 @@
 	echo "<br>";
 	$myBaseClass2->display2();
 	$myClass2=new MyClass2();
-	//系统报错 
+	//系统报错 对象类型
 	// $myBaseClass2->expectsMyClass($myClass2);
 
 
-
-
+	echo "<br>";
+	//PHP5可以让你给传递引用的参数设置默认值	
+	function my_func(&$arg = null) {
+		if($arg === NULL){
+			print '$arg is empty';
+		}
+	}
+	my_func();
 ?>
