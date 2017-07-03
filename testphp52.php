@@ -55,4 +55,55 @@
 			print 'Error: Forgot to specify a value for $name';
 		}
 		echo "<br>";
+
+		//打印出“Andi”
+		$str = "A";
+		$str{2} = "d";
+		$str{1} = "n";
+		// $str{4} = "k";
+		$str = $str . "i";
+		print $str;
+		echo "<br>";
+
+		$numerator = 1;
+		$denominator = 5;
+		if ($denominator == 0) {
+			print "The denominator needs to be a non-zero number \n";
+		} 
+
+		if ($denominator) {
+			print "hhh \n";
+		} else {
+			print "The denominator nees to be a non-zero number \n";
+		}
+
+		echo "<br>";
+		$arr1 = array(1,2,3);
+		$arr2[0] = 1;
+		$arr2[1] = 2;
+		$arr2[2] = 3;
+		$arr3[] = 1;
+		$arr3[] = 2;
+		$arr3[] = 3;
+		print_r($arr1);
+		echo "<br>";
+		print_r($arr2);
+		echo "<br>";
+		print_r($arr3);
+		echo "<br>";
+
+		$sarr1 = array("name" => "John" , "age" => 28);
+		$sarr2["name"] = "John";
+		$sarr2["age"] = 28;
+		if ($sarr1 == $sarr2){
+			print '$sarr1 and $sarr2 are the same'."\n";
+		}
+		echo "<br>";
+
+		print $sarr2["name"];
+		if ($sarr2["age"] < 35) {
+			print " is quite young \n";
+		}
+
+		echo "<br>";
 ?>
