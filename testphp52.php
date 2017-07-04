@@ -106,4 +106,51 @@
 		}
 
 		echo "<br>";
+
+		$players = array("John", "Barbara", "Bill", "Nancy");
+		print "The players are: \n";
+		foreach($players as $key => $value){
+				print "#$key = $value\n";
+		}
+
+		echo "<br>";
+
+		$people = array(1 => array("name" => "John", "age" => 28),2 => array("name" => "Barbara", "age" => 67));
+		foreach($people as &$person){
+			if ($person['age'] >= 35){
+				$person['age group'] = "Old";
+			} else {
+				$person['age group'] = "Young";
+			}
+		}
+
+		// var_dump($people);
+		print_r($people);
+		echo "<br>";
+
+		//list() 组合 each() 进行输出
+		$players = array("John", "Barbara", "Bill", "Nancy");
+		reset($players);
+		while(list($key,$val) = each($players)){
+			print "#$key = $val\n";
+		}
+
+		echo "<br>";
+
+		$ages = array("John" => 28, "Barbara" =>67);
+		reset($ages);
+		$person = each($ages);
+		print $person["key"];
+		print " is of age ";
+		print $person["value"];
+
+		echo "<br>";
+		//定义常量
+		define("MY_OK",0);
+		define("MY_ERROR",1);
+		$error_code=1;
+		if($error_code == MY_ERROR){
+			print("There was an error \n");
+		}
+
 ?>
