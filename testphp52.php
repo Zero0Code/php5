@@ -153,4 +153,102 @@
 			print("There was an error \n");
 		}
 
+
+		echo "<br>";
+		//引用赋值运算符
+		$name = "Judy";
+		$name_alias =& $name;
+		$name_alias = "Jonathan";
+		print $name;
+
+	    // $num1++ ++$num1;
+		echo "<br>";
+		$num1 = 5;
+		$num2 = $num1++;
+		print $num1;
+		echo "<br>";
+		print $num2;
+		echo "<br>";
+
+		$num1 = 5;
+		$num2 = ++$num1;
+		print $num1;
+		echo "<br>";
+		print $num2;
+
+		//字符串 最后一个字母或者数字会变为下一位字母或数字
+		echo "<br>";
+		$a = "a";
+		$b = ++$a;
+		echo $b;
+
+		echo "<br>";
+		$a = "1";
+		$b = ++$a;
+		echo $b;
+
+		echo "<br>";
+		$a = "1";
+		$b = --$a;
+		echo $b;
+
+		echo "<br>";
+		$a = "ab";
+		$b = ++$a;
+		echo $b;
+
+		echo "<br>";
+		$a = "ab";
+		$b = --$a;
+		echo $b;
+
+		echo "<br>";
+		$a = "1b9";
+		$b = ++$a;
+		echo $b;
+
+		echo "<br>";
+		$a = "1b9";
+		$b = --$a;
+		echo $b;
+
+		echo "<br>";
+		$a = ",2.";
+		$b = ++$a;
+		echo $b;
+
+		$str = "5";
+		$num = (int)$str;
+		var_dump($str);
+		var_dump($num);
+
+		$str = "a";
+		$num = (int)$str;
+		var_dump($str);
+		var_dump($num);
+
+		$a = 99;
+		$message = isset($a) ? '$a is set' : '$a is not set';
+		print $message;
+
+		echo "<br>";
+		$a = 99;
+		$message = isset($a) ? ++$a."++$a  $a  is set" : "$a is not set";
+		print $message;
+
+		echo "<br>";
+		
+		
+
+
+
+
 ?>
+
+<?php $num=9; if ($num < 0): ?>
+<h1>$num is negative</h1>
+<?php elseif ($num == 0): ?>
+<h1>$num is zero </h1>
+<?php elseif ($num > 0): ?>
+<h1>$num is positive </h1>
+<?php endif; ?>
