@@ -252,3 +252,35 @@
 <?php elseif ($num > 0): ?>
 <h1>$num is positive </h1>
 <?php endif; ?>
+
+<?php 
+	function fun()
+	{
+		$var = 3;
+	}
+	function func2()
+	{
+		$GLOBALS["var"] = 2;
+	}
+	$var = 1;
+	fun();
+	echo "<br>";
+	print $var;
+	func2();
+	echo "<br>";
+	print $var;
+
+
+	echo "<br>";
+	function &get_global_variable($name)
+	{
+		return $GLOBALS[$name];
+	}
+
+	$num = 10;
+	// $value =& get_global_variable($num);
+	$value =& get_global_variable("num");
+	print $value ."\n";
+	$value = 20;
+	print $num;
+?>
