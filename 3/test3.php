@@ -187,5 +187,115 @@
 	}
 	echo "<br>";
 	$obj = new Child();
-//parent:: 父类 self:: 子类
+//parent:: 父类 self:: 子类END
+
+//接口
+	interface Loggable 
+	{
+		function logString();
+	}
+
+	class Person implements Loggable 
+	{
+		private $name=2, $address, $idNumber=1, $age;
+		function logString() {
+			return "class Person: name = $this->name, ID = $this->idNumber\n";
+		}
+	}
+
+	class Product implements Loggable
+	{
+		private $name=1, $price=3, $expiryDate;
+		function logString()
+		{
+			return "class Product: name = $this->name, price = $this->price\n";
+		}
+	}
+
+	function MyLog($obj)
+	{
+		if ($obj instanceof Loggable) {
+			print $obj->logString();
+		} else {
+			print "Error: object doesn't support Loggable interface\n";
+		}
+	}
+
+	$person = new Person();
+	$product = new Product();
+	echo "<br>";
+	MyLog($person);
+	echo "<br>";
+	MyLog($product);
+//接口END
+
+//final 方法
+	class MyBaseClass
+	{
+		final function idGenerator()
+		{
+			return $this->id++;
+		}
+		protected $id = 0;
+	}
+	//报错
+	// class MyConcreteClass extends MyBaseClass
+	// {
+	// 	function idGenerator()
+	// 	{
+	// 		return $this->id +=2;
+	// 	}
+	// }
+//final 方法END
+
+//final Class
+	final class MyBaseClass2
+	{
+
+	}
+	//报错
+	// class MyConcreteClass extends MyBaseClass2
+	// {
+
+	// }
+//final ClassEND
+
+
+//__toString()
+	class Person2
+	{
+		function __construct($name)
+		{
+			$this->name = $name;
+		}
+		private $name;
+	}
+
+	$obj2 = new Person2("Andi Gutmans");
+	// print $obj2;
+	var_dump($obj2);
+
+	class Person3
+	{
+		function __construct($name)
+		{
+           $this->name=$name;
+		}
+
+		function __toString()
+		{
+			return $this->name;
+		}
+
+		private $name;
+	}
+
+	$obj3 = new Person3("Andi Gutmans");
+	print $obj3;
+	echo "<br>";
+	echo $obj3;
+
+
+
+//__toString()END
 ?>
