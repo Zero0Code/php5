@@ -294,8 +294,51 @@
 	print $obj3;
 	echo "<br>";
 	echo $obj3;
-
-
-
+	echo "<br>";
 //__toString()END
+
+	class NullHandleException extends Exception
+	{
+		function __construct($message)
+		{
+			parent::__construct($message);
+		}
+	}
+
+	function printObject($obj)
+	{
+		if ($obj == NULL) {
+            throw new NullHandleException("print Object recived NULL object");
+		}
+		print $obj . "\n";
+	}
+
+    class MyName
+    {
+    	function __construct($name)
+    	{
+             $this->name = $name;
+    	}
+
+    	function __toString()
+    	{
+    		return $this->name;
+    	}
+
+    	private $name;
+    }
+
+    try{
+    	printObject(new MyName("Bill"));
+    	printObject(NULL);
+    	printObject(new MyName("Jane"));
+    } catch (Exception $exception) {
+        print $exception->getMessage();
+        print " in file " . $exception->getFile();
+        print " on line " . $exception->getLine() . "\n";
+    } catch (Exception $exception) {
+
+    }
+
+
 ?>
